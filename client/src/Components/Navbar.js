@@ -1,39 +1,46 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-
 
 export const NavbarComponent=()=> {
     return (
-        <Navbar bg="dark" expand="lg"  variant="dark">
-          <Container fluid>
-            <Navbar.Brand href="#">Crypto Dictionary</Navbar.Brand>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-              <Nav
-                className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: '1400px' }}
-                navbarScroll
-              >
-                <Nav.Link href="#action1">Home</Nav.Link>
-                <Nav.Link href="#action1">Home</Nav.Link>
-                <Nav.Link href="#action1">Home</Nav.Link>
-                <Nav.Link href="#action1">Home</Nav.Link>  
-              </Nav>
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-              </Form>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+        <nav className="navbar navbar-expand-lg navbar-red navbar-dark">
+        <div className="wrapper">
+          
+        </div>
+  <div className="container-fluid all-show">
+    <a className="navbar-brand" href="#/">Penton <i className="fa fa-codepen"></i></a>
+    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#/">About us</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#/">Memes</a>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link" href="#/">Login</a>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link" href="#/">Logout</a>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link" href="#/">Register</a>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link" href="#/"><i className="fa fa-search"></i></a>
+        </li>
+        
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>
       );
 }
 
