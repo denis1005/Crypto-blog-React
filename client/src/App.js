@@ -1,7 +1,7 @@
 
 import {NavbarComponent} from './Components/Navbar'
 import {Footer} from './Components/Footer'
-import {CryptoCards} from './Components/CryptoCards'
+import {Home} from './Components/Home/Home'
 
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
     <div className='App'>
     <NavbarComponent/>
 
-     <CryptoCards/>
+     <Home/>
      
     <Footer/>
     </div>
