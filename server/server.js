@@ -1676,14 +1676,7 @@
                 "description":"XRP, itself, is used to source liquidity on-demand and reduce the amount in nostro accounts required to make global payments. Ripple also funds the Interledger Protocol, a software platform that aims to facilitate transactions between cryptocurrencies and bank ledgers.",
                 "_id": "54e6d099-6e00-4613-97b7-bc2b6bdc1db12"
             },
-            "54e6d099-6e00-4613-97b7-bc2b6bdc1db13": {
-                "name": "Xrp",
-                "symbol": "Xrp",
-                "imgUrl": "https://dailyhodl.com/wp-content/uploads/2019/11/mggsi987sa.png?w=810",
-                "price": 0.40,
-                "description":"XRP, itself, is used to source liquidity on-demand and reduce the amount in nostro accounts required to make global payments. Ripple also funds the Interledger Protocol, a software platform that aims to facilitate transactions between cryptocurrencies and bank ledgers.",
-                "_id": "54e6d099-6e00-4613-97b7-bc2b6bdc1db13"
-            }
+         
         }
     };
     var rules$1 = {

@@ -5,3 +5,8 @@ export const getAll=()=>{
     .then(res=>res.json())
     
 }
+export const getOne=(cryptoId)=>{
+    return fetch(`${baseUrl}/${cryptoId}`)
+     .then(res=>res.json())
+     
+ }

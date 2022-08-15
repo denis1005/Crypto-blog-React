@@ -1,4 +1,4 @@
-
+import {Link} from 'react-router-dom'
 
 export const CryptoCard=({data})=>{
     return(
@@ -7,7 +7,7 @@ export const CryptoCard=({data})=>{
       <div className="card-body">
         <h5 className="card-title">{data.name}</h5>
         <p className="card-text">{data.description}</p>
-        <a href="#/" className="btn btn-primary">Details</a>
+        <Link to={`/cards/details/${data._id}`} className="btn btn-primary">Details</Link>
       </div>
     </div>
     )
