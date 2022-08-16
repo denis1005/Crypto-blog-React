@@ -1,6 +1,33 @@
-
+import * as authServices from '../../Service/authService'
+import { useNavigate } from 'react-router';
+import { AuthContext } from '../../context/AuthContext';
+import { useContext } from 'react';
 
 export const Register=()=>{
+
+  const{userLogin}=useContext(AuthContext)
+  const navigate=useNavigate()
+  const onSubmit=(e)=>{
+   e.preventDefault();
+    const{
+    name,
+    email,
+    password
+    }=Object.fromEntries(new FormData(e.target))
+
+    authServices
+    .register(email,password,name)
+    .then(authData=>{
+      userLogin(authData);
+      navigate('/')
+
+    })
+    .catch(()=>{
+
+    })
+    
+  }
+
     return(
         <>
   <section>
@@ -13,9 +40,10 @@ export const Register=()=>{
                 <h2 className="text-uppercase text-center mb-5">
                   Create an account
                 </h2>
-                <form>
+                <form id='register' onSubmit={onSubmit}>
                   <div className="form-outline mb-4">
                     <input
+                      name="name"
                       type="text"
                       id="form3Example1cg"
                       className="form-control form-control-lg"
@@ -26,6 +54,7 @@ export const Register=()=>{
                   </div>
                   <div className="form-outline mb-4">
                     <input
+                      name="email"
                       type="email"
                       id="form3Example3cg"
                       className="form-control form-control-lg"
@@ -36,6 +65,7 @@ export const Register=()=>{
                   </div>
                   <div className="form-outline mb-4">
                     <input
+                      name="password"
                       type="password"
                       id="form3Example4cg"
                       className="form-control form-control-lg"
@@ -46,6 +76,7 @@ export const Register=()=>{
                   </div>
                   <div className="form-outline mb-4">
                     <input
+                      name="repeatPassword"
                       type="password"
                       id="form3Example4cdg"
                       className="form-control form-control-lg"
@@ -56,7 +87,7 @@ export const Register=()=>{
                   </div>
                   <div className="d-flex justify-content-center">
                     <button
-                      type="button"
+                      type="submit"
                       className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
                     >
                       Register
@@ -79,3 +110,4 @@ export const Register=()=>{
 </>
     );
 }
+
