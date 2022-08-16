@@ -5,6 +5,8 @@ import {Home} from './Components/Home/Home'
 import { Login } from './Components/Login/Login';
 import { Register } from './Components/Register/Register';
 import { CryptoDetails } from './Components/Details/CryptoDetails';
+import { AuthContext } from './context/AuthContext';
+import { useState } from 'react'; 
 
 import './App.css';
 
@@ -12,7 +14,17 @@ import './App.css';
 
 
 function App() {
+
+  const [auth,setAuth]=useState({});
+
+  const userLogin=(authData)=>{
+    setAuth(authData);
+  }
+
   return (
+    
+
+    <AuthContext.Provider value={{user:auth,userLogin}}>
     <div className='App'> 
     <NavbarComponent/>
      <Routes>
@@ -24,7 +36,7 @@ function App() {
      
     <Footer/>
     </div>
-    
+    </AuthContext.Provider>
   );
 }
 

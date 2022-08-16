@@ -1,3 +1,6 @@
-export const login=(email,password)=>{
-    
-}
+import * as request from "../utils/requester"
+
+const baseUrl='http://localhost:3030'
+
+export const login=(email,password)=>
+ request.post(`${baseUrl}/users/login`,{email,password})
