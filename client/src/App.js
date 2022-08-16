@@ -1,45 +1,42 @@
+import { Home } from './components/Home/Home';
+import { Navbar } from './components/Navbar/Navbar';
+import { Footer } from './components/Footer/Footer';
+import { CryptoDetails } from './components/CryptoDetails/CryptoDetails';
+import { Login } from './components/Login/Login';
 import {Route,Routes } from 'react-router-dom'
-
-import { useState } from 'react'; 
-
-import {NavbarComponent} from './Components/Navbar/Navbar'
-import {Footer} from './Components/Footer/Footer'
-import {Home} from './Components/Home/Home'
-import { Login } from './Components/Login/Login';
-import { Register } from './Components/Register/Register';
-import { CryptoDetails } from './Components/Details/CryptoDetails';
 import { AuthContext } from './context/AuthContext';
-
-
+import { useState } from 'react'; 
+import { Register } from './components/Register/Register';
+import { Logout } from './components/Logout/Logout';
 import './App.css';
 
 
 
 
 
-function App() {
 
+function App() {
   const [auth,setAuth]=useState({});
 
   const userLogin=(authData)=>{
     setAuth(authData);
   }
 
+  const userLogout = () => {
+    setAuth({});
+};
   return (
-    
-
-    <AuthContext.Provider value={{user:auth,userLogin}}>
-    <div className='App'> 
-    <NavbarComponent/>
-     <Routes>
+    <AuthContext.Provider value={{user:auth,userLogin,userLogout}}>
+    <div className="App">
+      <Navbar/>
+      <Routes>
       <Route path="/" element={ <Home/>}/>
-      <Route path="/login" element={ <Login/>}/>
-      
-      <Route path="/register" element={ <Register/>}/>
       <Route path="/cards/details/:cryptoId" element={ <CryptoDetails/>}/>
-     </Routes>
-     
-    <Footer/>
+      <Route path="/login" element={ <Login/>}/>
+      <Route path="/logout" element={ <Logout/>}/>
+      <Route path="/register" element={ <Register/>}/>
+      </Routes>
+      <Footer/>
     </div>
     </AuthContext.Provider>
   );
