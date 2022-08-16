@@ -1,5 +1,14 @@
 
 export const Login=()=>{
+  const onSubmit=(e)=>{
+   e.preventDefault();
+    const{
+    email,
+    password
+    }=Object.fromEntries(new FormData(e.target))
+    console.log(email,password)
+    
+  }
    return(
     <>
     <section className="vh-100 gradient-custom">
@@ -11,13 +20,14 @@ export const Login=()=>{
               style={{ borderRadius: "1rem" }}
             >
               <div className="card-body p-5 text-center">
-                <div className="mb-md-5 mt-md-4 pb-5">
+                <form id='logion' className="mb-md-5 mt-md-4 pb-5" onSubmit={onSubmit}>
                   <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
                   <p className="text-white-50 mb-5">
                     Please enter your login and password!
                   </p>
                   <div className="form-outline form-white mb-4">
                     <input
+                      name="email"
                       type="email"
                       id="typeEmailX"
                       className="form-control form-control-lg"
@@ -31,6 +41,7 @@ export const Login=()=>{
                       type="password"
                       id="typePasswordX"
                       className="form-control form-control-lg"
+                      name="password"
                     />
                     <label className="form-label" htmlFor="typePasswordX">
                       Password
@@ -42,7 +53,7 @@ export const Login=()=>{
                   >
                     Login
                   </button>
-                </div>
+                </form>
                 <div>
                   <p className="mb-0">
                     Don't have an account?{" "}

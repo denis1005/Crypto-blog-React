@@ -176,5 +176,5 @@ body{
 
   /* details  css */
   .col-md-4 > *{
-    color:#eee;
+    color: #adb7bd; font-family: 'Lucida Sans', Arial, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; 
   }
