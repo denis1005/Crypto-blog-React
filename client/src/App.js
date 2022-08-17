@@ -5,7 +5,6 @@ import { CryptoDetails } from './components/CryptoDetails/CryptoDetails';
 import { Login } from './components/Login/Login';
 import {Route,Routes } from 'react-router-dom'
 import { AuthContext } from './context/AuthContext';
-import { useState } from 'react'; 
 import { Register } from './components/Register/Register';
 import { Logout } from './components/Logout/Logout';
 import { Memes } from './components/Memes/Memes';

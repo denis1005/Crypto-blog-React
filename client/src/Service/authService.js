@@ -12,8 +12,7 @@ export const login=(email,password)=>
                'X-Authorization': accessToken
            }
        });
-       localStorage.clear()
-
+      
        return response;
    } catch (error) {
        console.log(error);
