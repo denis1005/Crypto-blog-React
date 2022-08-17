@@ -8,7 +8,11 @@ import { AuthContext } from './context/AuthContext';
 import { useState } from 'react'; 
 import { Register } from './components/Register/Register';
 import { Logout } from './components/Logout/Logout';
+import { Memes } from './components/Memes/Memes';
+import { MemeDetails } from './components/Meme details/MemeDetails';
 import './App.css';
+
+
 
 
 
@@ -35,6 +39,8 @@ function App() {
       <Route path="/login" element={ <Login/>}/>
       <Route path="/logout" element={ <Logout/>}/>
       <Route path="/register" element={ <Register/>}/>
+      <Route path="/memes" element={ <Memes/>}/>
+      <Route path="/memes/details/:memeId" element={ <MemeDetails/>}/>
       </Routes>
       <Footer/>
     </div>

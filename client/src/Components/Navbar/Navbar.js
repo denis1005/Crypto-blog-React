@@ -72,13 +72,13 @@ export const Navbar=()=>{
             </Link>
                    </li>
                     <li className="u-nav-item">
-            <a
+            <Link
               className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-              href="Memes.html"
+              to="/memes"
               style={{ padding: "10px 20px" }}
             >
               Memes
-            </a>
+            </Link>
                    </li>
                    <li className="u-nav-item">
             <a
@@ -103,13 +103,13 @@ export const Navbar=()=>{
             </Link>
                    </li>
                     <li className="u-nav-item">
-            <a
+            <Link
               className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-              href="Memes.html"
+              to="/memes"
               style={{ padding: "10px 20px" }}
             >
               Memes
-            </a>
+            </Link>
                    </li>
                     <li className="u-nav-item">
             <a
