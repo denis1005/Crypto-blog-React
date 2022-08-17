@@ -11,16 +11,10 @@ import { Logout } from './components/Logout/Logout';
 import { Memes } from './components/Memes/Memes';
 import { MemeDetails } from './components/Meme details/MemeDetails';
 import './App.css';
-
-
-
-
-
-
-
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
-  const [auth,setAuth]=useState({});
+  const [auth,setAuth]=useLocalStorage('auth',{});
 
   const userLogin=(authData)=>{
     setAuth(authData);
