@@ -1691,19 +1691,22 @@
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
     			title: "Bitcoiners be like",
     			imgUrl: "https://experty-web.imgix.net/f153889d-cd8a-446d-9b90-953c739d0a20?auto=compress&h=720&w=1280",
-    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f63"
+    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f63",
+                likes:5,
     		} ,
             "0a272c58-b7ea-4e09-a000-7ec988248f64": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
     			title: "Ethereum useres be like",
     			imgUrl: "https://influencermarketinghub.com/wp-content/uploads/2022/05/Top-100-Crypto-Memes-of-2022-11-it-costs-everything.jpg",
-    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f64"
+    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f64",
+                likes:5,
     		} ,
             "0a272c58-b7ea-4e09-a000-7ec988248f65": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
     			title: "New hodlers",
     			imgUrl: "https://experty-web.imgix.net/30518724-ac82-49bc-a14e-a4bd444370aa?auto=compress&h=720&w=1280",
-    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f65"
+    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f65",
+                likes:5,
     		} 
         }
     };

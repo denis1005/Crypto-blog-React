@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
@@ -7,14 +8,37 @@ export const MemeDetails=()=>{
 
     const { memeId } = useParams();
     const [selected, setSelected] = useState({});
+    const [like,setLike]=useState()
   
     useEffect(() => {
       memeServices.getOne(memeId)
         .then(result => {
           setSelected(result);
-          console.log(result)
+          setLike(result.likes)
         });
     }, [])
+
+
+
+    const onclickHandler=(e)=>{
+      if(e.currentTarget.textContent=='Like')
+      {
+        setLike(likes=>likes+1)
+        console.log(like)
+        e.currentTarget.textContent= 'Dislike'
+        
+      }
+      else{
+        setLike(likes=>likes-1)
+        console.log(like)
+        e.currentTarget.textContent= 'Like'
+      }
+
+    }
+
+   
+
+    
 
     return(
     <section className="u-align-center u-clearfix u-section-1" id="sec-fff7">
@@ -47,7 +71,7 @@ export const MemeDetails=()=>{
           data-animation-event="scroll"
           data-animation-duration={3000}
         >
-          Likes:0
+          Likes:{selected.likes}
         </h3>
       
         {/*blog_post_content*/}
@@ -66,12 +90,12 @@ export const MemeDetails=()=>{
           Delete
         </a>
 
-        <a
+        <button onClick={onclickHandler}
           href="https://nicepage.com/website-mockup"
           className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
         >
           Like
-        </a>
+        </button>
       </div>
     </div>
     {/*/blog_post*/}
