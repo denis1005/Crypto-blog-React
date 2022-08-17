@@ -3,9 +3,10 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import * as memeServices from "../../Service/memeServices"
+import { useNavigate } from 'react-router-dom';
 
 export const MemeDetails=()=>{
-
+    const navigate = useNavigate();
     const { memeId } = useParams();
     const [selected, setSelected] = useState({});
     const [like,setLike]=useState()
@@ -34,6 +35,17 @@ export const MemeDetails=()=>{
         e.currentTarget.textContent= 'Like'
       }
 
+    }
+
+    const OnDeleteHandler=(e)=>{
+      memeServices.deleteOne(memeId)
+      .then((res)=>{
+        setSelected()
+        navigate('/memes')
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
     }
 
    
@@ -83,12 +95,12 @@ export const MemeDetails=()=>{
         >
           Edit
         </a>
-        <a
+        <button onClick={OnDeleteHandler}
           href="https://nicepage.com/website-mockup"
           className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
         >
           Delete
-        </a>
+        </button>
 
         <button onClick={onclickHandler}
           href="https://nicepage.com/website-mockup"

@@ -1,8 +1,11 @@
 import * as memeServices from "../../Service/memeServices"
-
+import { useContext } from 'react';
+import { MemeContext } from '../../context/Memecontext';
 import { useNavigate } from 'react-router';
 
 export const  CreateMeme=()=>{
+
+  const { memeAdd } = useContext(MemeContext);
 
   const navigate=useNavigate()
   const onSubmit=(e)=>{
@@ -16,6 +19,7 @@ export const  CreateMeme=()=>{
     memeServices
     .createOne(title,imgUrl)
     .then(res=>{
+      memeAdd({title,imgUrl})
       navigate('/memes')
 
     })

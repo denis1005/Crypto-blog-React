@@ -1,21 +1,6 @@
 import { MemeCard } from "./MemeCard";
-import {useEffect, useState} from 'react'
 
-import * as memeServices from "../../Service/memeServices"
-
-
-export const Memes=()=>{
-
-    const [memes,setMemes]=useState([]);
-
-    useEffect(()=>{
-        memeServices
-      .getAll()
-      .then(result=>{
-        setMemes(result);
-      });
-    },[])
-    
+export const Memes=({memes})=>{
    return(
 
     
