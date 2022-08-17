@@ -9,6 +9,7 @@ import { Register } from './components/Register/Register';
 import { Logout } from './components/Logout/Logout';
 import { Memes } from './components/Memes/Memes';
 import { MemeDetails } from './components/Meme details/MemeDetails';
+import { CreateMeme } from './components/CreateMeme/CreateMeme';
 import './App.css';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
@@ -33,6 +34,7 @@ function App() {
       <Route path="/logout" element={ <Logout/>}/>
       <Route path="/register" element={ <Register/>}/>
       <Route path="/memes" element={ <Memes/>}/>
+      <Route path="/create" element={ <CreateMeme/>}/>
       <Route path="/memes/details/:memeId" element={ <MemeDetails/>}/>
       </Routes>
       <Footer/>

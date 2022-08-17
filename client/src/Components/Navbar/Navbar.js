@@ -62,6 +62,16 @@ export const Navbar=()=>{
           </Link>
                     </li>
                     <li className="u-nav-item">
+          <Link
+
+            className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+            to="/create"
+            style={{ padding: "10px 20px" }}
+          >
+            Create Meme
+          </Link>
+                    </li>
+                    <li className="u-nav-item">
             <Link
 
               className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
