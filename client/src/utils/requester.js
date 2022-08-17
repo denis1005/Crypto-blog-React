@@ -12,7 +12,7 @@ export const  request= async(method,url,data)=>{
         let buildRequest;
 
         if(method==='GET'){
-            buildRequest=fetch(url, {headers})
+            buildRequest=fetch(url, { headers })
         }else{
             buildRequest=fetch(url,{
                 method,

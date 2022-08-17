@@ -4,8 +4,11 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import * as memeServices from "../../Service/memeServices"
 import { useNavigate } from 'react-router-dom';
+import { MemeContext } from '../../context/Memecontext';
+import { useContext } from 'react';
 
 export const MemeDetails=()=>{
+    const { memeDelete } = useContext(MemeContext);
     const navigate = useNavigate();
     const { memeId } = useParams();
     const [selected, setSelected] = useState({});
@@ -40,7 +43,7 @@ export const MemeDetails=()=>{
     const OnDeleteHandler=(e)=>{
       memeServices.deleteOne(memeId)
       .then((res)=>{
-        setSelected()
+        memeDelete(memeId)
         navigate('/memes')
       })
       .catch((err)=>{

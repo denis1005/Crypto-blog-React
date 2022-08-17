@@ -1,9 +1,10 @@
+/* eslint-disable eqeqeq */
 import { Home } from './components/Home/Home';
 import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
 import { CryptoDetails } from './components/CryptoDetails/CryptoDetails';
 import { Login } from './components/Login/Login';
-import {Route,Routes } from 'react-router-dom'
+import {Route,Routes} from 'react-router-dom'
 import { AuthContext } from './context/AuthContext';
 import { MemeContext } from './context/Memecontext';
 import { Register } from './components/Register/Register';
@@ -33,8 +34,12 @@ function App() {
         ...state,
         memeData,
     ]);
+    
+   };
 
-};
+   const memeDelete = (memeId) => {
+    setMemes(state => state.filter(x=>x._id!==memeId));
+   };
 
     useEffect(()=>{
         memeServices
@@ -47,7 +52,7 @@ function App() {
   return (
     <AuthContext.Provider value={{user:auth,userLogin,userLogout}}>
     <div className="App">
-    <MemeContext.Provider value={{setMemes,memeAdd}}>
+    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete}}>
       <Navbar/>
       <Routes>
       <Route path="/" element={ <Home/>}/>

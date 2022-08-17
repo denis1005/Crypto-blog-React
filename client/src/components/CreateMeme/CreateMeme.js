@@ -7,7 +7,7 @@ export const  CreateMeme=()=>{
 
   const { memeAdd } = useContext(MemeContext);
 
-  const navigate=useNavigate()
+  //const navigate=useNavigate()
   const onSubmit=(e)=>{
    e.preventDefault();
     const{
@@ -20,8 +20,6 @@ export const  CreateMeme=()=>{
     .createOne(title,imgUrl)
     .then(res=>{
       memeAdd({title,imgUrl})
-      navigate('/memes')
-
     })
     .catch((err)=>{
         console.log(err)
