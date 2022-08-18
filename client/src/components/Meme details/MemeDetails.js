@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import * as memeServices from "../../Service/memeServices"
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ export const MemeDetails=()=>{
     const navigate = useNavigate();
     const { memeId } = useParams();
     const [selected, setSelected] = useState({});
-    const [like,setLike]=useState()
+    const [like,setLike]=useState(0)
   
     useEffect(() => {
       memeServices.getOne(memeId)
@@ -23,22 +23,21 @@ export const MemeDetails=()=>{
     }, [])
 
 
-
+    console.log(like)
     const onclickHandler=(e)=>{
       if(e.currentTarget.textContent=='Like')
       {
-        setLike(likes=>likes+1)
+       
+        setLike(selected.likes+1)
         console.log(like)
         e.currentTarget.textContent= 'Dislike'
         
+      }if(e.currentTarget.textContent=='Dislike'){
+        
       }
-      else{
-        setLike(likes=>likes-1)
-        console.log(like)
-        e.currentTarget.textContent= 'Like'
-      }
-
     }
+
+  
 
     const OnDeleteHandler=(e)=>{
       memeServices.deleteOne(memeId)
@@ -92,12 +91,12 @@ export const MemeDetails=()=>{
         {/*blog_post_content*/}
        
         {/*/blog_post_content*/}
-        <a
-          href="https://nicepage.com/k/aesthetic-website-templates"
+        <Link
+          to={`/memes/edit/${memeId}`}
           className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-2"
         >
           Edit
-        </a>
+        </Link>
         <button onClick={OnDeleteHandler}
           href="https://nicepage.com/website-mockup"
           className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
@@ -106,7 +105,6 @@ export const MemeDetails=()=>{
         </button>
 
         <button onClick={onclickHandler}
-          href="https://nicepage.com/website-mockup"
           className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
         >
           Like

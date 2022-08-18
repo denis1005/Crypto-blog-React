@@ -14,8 +14,10 @@ import { MemeDetails } from './components/Meme details/MemeDetails';
 import { CreateMeme } from './components/CreateMeme/CreateMeme';
 import './App.css';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { EditMeme } from './components/Edit/Edit';
 import * as memeServices from "./Service/memeServices"
 import {useState, useEffect } from 'react'
+
 
 function App() {
   const [auth,setAuth]=useLocalStorage('auth',{});
@@ -41,6 +43,10 @@ function App() {
     setMemes(state => state.filter(x=>x._id!==memeId));
    };
 
+   const memeEdit = (memeId, memeData) => {
+    setMemes(state => state.map(x => x._id === memeId ? memeData : x));
+     }
+
     useEffect(()=>{
         memeServices
       .getAll()
@@ -52,7 +58,7 @@ function App() {
   return (
     <AuthContext.Provider value={{user:auth,userLogin,userLogout}}>
     <div className="App">
-    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete}}>
+    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete,memeEdit}}>
       <Navbar/>
       <Routes>
       <Route path="/" element={ <Home/>}/>
@@ -63,6 +69,7 @@ function App() {
       <Route path="/memes" element={ <Memes memes={memes}/>}/>
       <Route path="/create" element={ <CreateMeme/>}/>
       <Route path="/memes/details/:memeId" element={ <MemeDetails/>}/>
+      <Route path="/memes/edit/:memeId" element={ <EditMeme/>}/>
       </Routes>
       <Footer/>
       </MemeContext.Provider> 

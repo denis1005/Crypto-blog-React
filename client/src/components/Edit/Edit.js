@@ -1,33 +1,48 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unreachable */
 import * as memeServices from "../../Service/memeServices"
 import { useContext } from 'react';
 import { MemeContext } from '../../context/Memecontext';
 import { useNavigate } from 'react-router';
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
-export const  CreateMeme=()=>{
- 
 
-  const { memeAdd } = useContext(MemeContext);
+export const EditMeme =()=>{
+    const { memeId } = useParams();
+    const { memeEdit } = useContext(MemeContext);
+    const navigate = useNavigate();
+    const [selected,setSelected]= useState({})
 
-  const navigate=useNavigate()
-  const onSubmit=(e)=>{
-   e.preventDefault();
-    const{
-    title,
-    imgUrl,
+    useEffect(()=>{
+        memeServices.getOne(memeId)
+        .then(res=>{
+            setSelected(res);
+        })
+        .catch((err)=>{
+           console.log(err)
+        })
+    },[])
     
-    }=Object.fromEntries(new FormData(e.target))
 
-    memeServices
-    .createOne(title,imgUrl)
-    .then(res=>{
-      memeAdd(res)
-      navigate('/memes')
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-    
-  }
+    const onSubmit=(e)=>{
+        e.preventDefault();
+         const{
+         title,
+         imgUrl,
+         
+         }=Object.fromEntries(new FormData(e.target))
+     
+         memeServices
+         .updateOne(memeId,{title,imgUrl})
+         .then(res=>{
+            memeEdit(memeId,{title,imgUrl})
+            navigate(`/memes/details/${memeId}`)
+         })
+         .catch((err)=>{
+             console.log(err)
+         })
+     }
     return(
         <>
         <section>
@@ -47,6 +62,7 @@ export const  CreateMeme=()=>{
                           type="text"
                           id="form3Example1cg"
                           className="form-control form-control-lg"
+                          defaultValue={selected.title}
                         />
                         <label className="form-label" htmlFor="form3Example1cg">
                           Your Meme Title
@@ -58,6 +74,7 @@ export const  CreateMeme=()=>{
                           type="text"
                           id="form3Example1cg"
                           className="form-control form-control-lg"
+                          defaultValue={selected.imgUrl}
                         />
                         <label className="form-label" htmlFor="form3Example1cg">
                           Your Meme Image URL
@@ -83,4 +100,6 @@ export const  CreateMeme=()=>{
       </section>
     </>
     );
+    
 }
+    
