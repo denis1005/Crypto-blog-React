@@ -17,7 +17,8 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import { EditMeme } from './components/Edit/Edit';
 import * as memeServices from "./Service/memeServices"
 import {useState, useEffect } from 'react'
-
+import {MemeOwner} from './components/common/MemeOwner'
+import {IsLoggedIn} from './components/common/IslogedIn'
 
 function App() {
   const [auth,setAuth]=useLocalStorage('auth',{});
@@ -30,6 +31,8 @@ function App() {
   const userLogout = () => {
     setAuth({});
   };
+
+  let isAuthenticated=!!auth.accessToken
 
   const memeAdd = (memeData) => {
     setMemes(state => [
@@ -47,6 +50,14 @@ function App() {
     setMemes(state => state.map(x => x._id === memeId ? memeData : x));
      }
 
+     const selectMeme = (memeId) => {
+      return memes.find((x => x._id === memeId) || {});
+  };
+
+  
+ 
+     
+
     useEffect(()=>{
         memeServices
       .getAll()
@@ -56,20 +67,24 @@ function App() {
     },[])
 
   return (
-    <AuthContext.Provider value={{user:auth,userLogin,userLogout}}>
+    <AuthContext.Provider value={{user:auth,userLogin,userLogout,isAuthenticated}}>
     <div className="App">
-    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete,memeEdit}}>
+    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete,memeEdit,selectMeme}}>
       <Navbar/>
       <Routes>
       <Route path="/" element={ <Home/>}/>
       <Route path="/cards/details/:cryptoId" element={ <CryptoDetails/>}/>
-      <Route path="/login" element={ <Login/>}/>
+      <Route element={<IsLoggedIn/>}>
+         <Route path="/login" element={ <Login/>}/>
+         <Route path="/register" element={ <Register/>}/>
+      </Route>
       <Route path="/logout" element={ <Logout/>}/>
-      <Route path="/register" element={ <Register/>}/>
       <Route path="/memes" element={ <Memes memes={memes}/>}/>
       <Route path="/create" element={ <CreateMeme/>}/>
       <Route path="/memes/details/:memeId" element={ <MemeDetails/>}/>
-      <Route path="/memes/edit/:memeId" element={ <EditMeme/>}/>
+      <Route element={<MemeOwner/>}>
+         <Route path="/memes/edit/:memeId" element={ <EditMeme/>}/>
+      </Route>
       </Routes>
       <Footer/>
       </MemeContext.Provider> 

@@ -10,35 +10,20 @@ import { AuthContext } from '../../context/AuthContext';
 
 export const MemeDetails=()=>{
     const { user } = useContext(AuthContext);
-    const { memeDelete } = useContext(MemeContext);
+    const { memeDelete,memeEdit } = useContext(MemeContext);
     const navigate = useNavigate();
     const { memeId } = useParams();
     const [selected, setSelected] = useState({});
-    const [like,setLike]=useState(0)
+    
   
     useEffect(() => {
       memeServices.getOne(memeId)
         .then(result => {
           setSelected(result);
-          setLike(result.likes)
+          
         });
     }, [])
-
-
-    console.log(like)
-    const onclickHandler=(e)=>{
-      if(e.currentTarget.textContent=='Like')
-      {
-       
-        setLike(selected.likes+1)
-        console.log(like)
-        e.currentTarget.textContent= 'Dislike'
-        
-      }if(e.currentTarget.textContent=='Dislike'){
-        
-      }
-    }
-
+  
   
 
     const OnDeleteHandler=(e)=>{
@@ -49,6 +34,19 @@ export const MemeDetails=()=>{
       })
       .catch((err)=>{
         console.log(err)
+      })
+    }
+
+    const OnLikeHandler=(e)=>{
+      selected.likes++
+      memeServices
+      .updateOne(memeId,selected)
+      .then(res=>{
+         memeEdit(memeId,selected)
+         navigate(`/memes/details/${memeId}`)
+      })
+      .catch((err)=>{
+          console.log(err)
       })
     }
 
@@ -90,7 +88,7 @@ export const MemeDetails=()=>{
           Likes:{selected.likes}
         </h3>
         {user.email
-          ?   <div class="btn-group">
+          ?   <div className="btn-group">
                  {user._id==selected._ownerId
                     ? <>
                           <Link
@@ -107,7 +105,7 @@ export const MemeDetails=()=>{
                          </button>
                       </>
                      : <>
-                         <button onClick={onclickHandler}
+                         <button onClick={OnLikeHandler}
             className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
           >
             Like
