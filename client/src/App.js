@@ -20,6 +20,7 @@ import {useState, useEffect } from 'react'
 import {MemeOwner} from './components/common/MemeOwner'
 import {IsLoggedIn} from './components/common/IslogedIn'
 import { NotFound } from './components/NotFound/NotFound';
+import { Profile } from './components/Profile/Profile';
 
 function App() {
   const [auth,setAuth]=useLocalStorage('auth',{});
@@ -82,6 +83,7 @@ function App() {
          <Route path="/login" element={ <Login/>}/>
          <Route path="/register" element={ <Register/>}/>
       </Route>
+      <Route path="/profile" element={ <Profile/>}/>
       <Route path="/logout" element={ <Logout/>}/>
       <Route path="/memes" element={ <Memes memes={memes}/>}/>
       <Route path="/create" element={ <CreateMeme/>}/>

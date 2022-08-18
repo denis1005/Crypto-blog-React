@@ -53,7 +53,7 @@ export const EditMeme =()=>{
                 <div className="card bg-dark text-white" style={{ borderRadius: 15 }}>
                   <div className="card-body p-5">
                     <h2 className="text-uppercase text-center mb-5">
-                      Create an Meme
+                    Edit Meme
                     </h2>
                     <form id='create' onSubmit={onSubmit}>
                       <div className="form-outline mb-4">
@@ -86,7 +86,7 @@ export const EditMeme =()=>{
                           type="submit"
                           className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
                         >
-                          Create
+                          Edit
                         </button>
                       </div>
                      
