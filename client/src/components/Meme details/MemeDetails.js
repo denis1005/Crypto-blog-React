@@ -6,8 +6,10 @@ import * as memeServices from "../../Service/memeServices"
 import { useNavigate } from 'react-router-dom';
 import { MemeContext } from '../../context/Memecontext';
 import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 export const MemeDetails=()=>{
+    const { user } = useContext(AuthContext);
     const { memeDelete } = useContext(MemeContext);
     const navigate = useNavigate();
     const { memeId } = useParams();
@@ -87,28 +89,40 @@ export const MemeDetails=()=>{
         >
           Likes:{selected.likes}
         </h3>
-      
-        {/*blog_post_content*/}
-       
-        {/*/blog_post_content*/}
-        <Link
-          to={`/memes/edit/${memeId}`}
-          className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-2"
-        >
-          Edit
-        </Link>
-        <button onClick={OnDeleteHandler}
-          href="https://nicepage.com/website-mockup"
-          className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
-        >
-          Delete
-        </button>
+        {user.email
+          ?   <div class="btn-group">
+                 {user._id==selected._ownerId
+                    ? <>
+                          <Link
+                    to={`/memes/edit/${memeId}`}
+                    className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-2"
+                  >
+                    Edit
+                         </Link>
+                         <button onClick={OnDeleteHandler}
+                    href="https://nicepage.com/website-mockup"
+                    className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
+                  >
+                    Delete
+                         </button>
+                      </>
+                     : <>
+                         <button onClick={onclickHandler}
+            className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
+          >
+            Like
+                         </button>
+                     </>
+                 }
+    
+         
+              </div>
 
-        <button onClick={onclickHandler}
-          className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3"
-        >
-          Like
-        </button>
+          : <div style={{display: 'flex', alignItems:'center',justifyContent:'center'}}>
+            <h1>You need to be log in to like the meme</h1>
+            </div>
+        }
+       
       </div>
     </div>
     {/*/blog_post*/}
