@@ -27,7 +27,15 @@ Home page:
 
 ![Capture](https://user-images.githubusercontent.com/19151979/185434955-6ea6b05a-69a2-4da4-bbdd-6b4cd20e8732.PNG)
 
-Home page can be accessed for users and guests
+The home page is available to users and guests.It also displays a collection of several cryptocurrencies with an opportunity to read more information from users and guests
+
+Details page:
+
+The Details page is available to users and guests.
+
+![datails2](https://user-images.githubusercontent.com/19151979/185437018-6f54b561-f697-4237-a858-d4d6b5384ac9.PNG)
+![datails3](https://user-images.githubusercontent.com/19151979/185437086-145b6ff7-0d1d-402f-be8c-2831c3a03bb2.PNG)
+
 
 
 
