@@ -6,10 +6,10 @@ https://softuni.bg/trainings/3727/reactjs-june-2022
 
 To start the project:
 
-1. Open the folder server in integrated terminal 
+1. Open the server folder  in integrated terminal 
 and type node server.js
 
-2. Open the folder client in integrated terminal 
+2. Open the client folder  in integrated terminal 
 and type :
 
       npm i - command installs a 
