@@ -40,7 +40,7 @@ export const EditMeme =()=>{
             navigate(`/memes/details/${memeId}`)
          })
          .catch((err)=>{
-             console.log(err)
+             navigate('/404')
          })
      }
     return(

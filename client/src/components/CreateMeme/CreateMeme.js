@@ -24,7 +24,7 @@ export const  CreateMeme=()=>{
       navigate('/memes')
     })
     .catch((err)=>{
-        console.log(err)
+        navigate('/404')
     })
     
   }

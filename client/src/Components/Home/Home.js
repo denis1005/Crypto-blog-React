@@ -1,20 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/iframe-has-title */
 
 import {useEffect, useState} from 'react'
-
+import { useNavigate } from 'react-router';
 import {CryptoCard} from './CryptoCard'
 
 import * as cryptoServices from "../../Service/cryptoServices"
 
 export const Home=()=>{
   const [crypto,setCrypto]=useState([]);
+  const navigate=useNavigate()
 
   useEffect(()=>{
     cryptoServices
     .getAll()
     .then(result=>{
       setCrypto(result);
-    });
+    })
+    .catch((err)=>{
+      navigate('/404')
+  })
   },[])
   return(
     <>

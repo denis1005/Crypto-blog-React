@@ -22,7 +22,7 @@ export const Login=()=>{
 
     })
     .catch(()=>{
-
+      navigate('/404')
     })
     
   }

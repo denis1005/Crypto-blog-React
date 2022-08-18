@@ -23,7 +23,7 @@ export const Register=()=>{
 
     })
     .catch(()=>{
-
+      navigate('/404')
     })
     
   }

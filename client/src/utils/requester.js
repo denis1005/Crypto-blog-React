@@ -1,4 +1,6 @@
+
 export const  request= async(method,url,data)=>{
+    
 
     try {
         const user=localStorage.getItem('auth');

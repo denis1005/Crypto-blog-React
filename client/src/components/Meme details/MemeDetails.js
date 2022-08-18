@@ -46,7 +46,7 @@ export const MemeDetails=()=>{
          navigate(`/memes/details/${memeId}`)
       })
       .catch((err)=>{
-          console.log(err)
+        navigate('/404')
       })
     }
 

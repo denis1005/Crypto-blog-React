@@ -2,17 +2,21 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import * as cryptoServices from "../../Service/cryptoServices"
+import { useNavigate } from 'react-router';
 
 export const CryptoDetails= ()=>{
   const { cryptoId } = useParams();
   const [selected, setSelected] = useState({});
+  const navigate=useNavigate()
 
   useEffect(() => {
     cryptoServices.getOne(cryptoId)
       .then(result => {
         setSelected(result);
-        console.log(result)
-      });
+      })
+      .catch((err)=>{
+        navigate('/404')
+    })
   }, [])
    return(
      

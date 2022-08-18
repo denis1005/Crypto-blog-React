@@ -19,6 +19,7 @@ import * as memeServices from "./Service/memeServices"
 import {useState, useEffect } from 'react'
 import {MemeOwner} from './components/common/MemeOwner'
 import {IsLoggedIn} from './components/common/IslogedIn'
+import { NotFound } from './components/NotFound/NotFound';
 
 function App() {
   const [auth,setAuth]=useLocalStorage('auth',{});
@@ -63,7 +64,10 @@ function App() {
       .getAll()
       .then(result=>{
         setMemes(result);
-      });
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
     },[])
 
   return (
@@ -85,6 +89,8 @@ function App() {
       <Route element={<MemeOwner/>}>
          <Route path="/memes/edit/:memeId" element={ <EditMeme/>}/>
       </Route>
+      <Route path="*" element={ <NotFound/>}/>
+      
       </Routes>
       <Footer/>
       </MemeContext.Provider> 
