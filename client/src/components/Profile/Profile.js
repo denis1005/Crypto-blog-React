@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export const Profile = () => {
     const { user } = useContext(AuthContext);
-    console.log(user.imgUrl);
+
     return (
         <section className="u-clearfix u-section-1" id="sec-1755">
             <div className="u-clearfix u-sheet u-sheet-1">
@@ -25,13 +25,13 @@ export const Profile = () => {
                                 <div className="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-valign-top-xs u-container-layout-2">
                                     <h2 className="u-text u-text-default u-text-1"> Profile </h2>
                                     <p className="u-text u-text-2">
-                                      Name: {user.username}
+                                      Name: {user.username} {user.name}
                                     </p>
                                     <p className="u-text u-text-2">
                                       Email: {user.email}
                                     </p>
-                                    <Link to="/" className="u-btn u-button-style u-btn-1">
-                                        Home
+                                    <Link to="/collection" className="u-btn u-button-style u-btn-1">
+                                        Collection
                                     </Link>
                                 </div>
                             </div>

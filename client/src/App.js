@@ -21,6 +21,7 @@ import {MemeOwner} from './components/common/MemeOwner'
 import {IsLoggedIn} from './components/common/IslogedIn'
 import { NotFound } from './components/NotFound/NotFound';
 import { Profile } from './components/Profile/Profile';
+import { Collection } from './components/Collection/Collection';
 
 function App() {
   const [auth,setAuth]=useLocalStorage('auth',{});
@@ -74,7 +75,7 @@ function App() {
   return (
     <AuthContext.Provider value={{user:auth,userLogin,userLogout,isAuthenticated}}>
     <div className="App">
-    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete,memeEdit,selectMeme}}>
+    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete,memeEdit,selectMeme,memes}}>
       <Navbar/>
       <Routes>
       <Route path="/" element={ <Home/>}/>
@@ -84,6 +85,7 @@ function App() {
          <Route path="/register" element={ <Register/>}/>
       </Route>
       <Route path="/profile" element={ <Profile/>}/>
+      <Route path="/collection" element={ <Collection/>}/>
       <Route path="/logout" element={ <Logout/>}/>
       <Route path="/memes" element={ <Memes memes={memes}/>}/>
       <Route path="/create" element={ <CreateMeme/>}/>

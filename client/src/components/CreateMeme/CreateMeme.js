@@ -38,7 +38,7 @@ export const  CreateMeme=()=>{
                 <div className="card bg-dark text-white" style={{ borderRadius: 15 }}>
                   <div className="card-body p-5">
                     <h2 className="text-uppercase text-center mb-5">
-                      Create an Meme
+                      Create Meme
                     </h2>
                     <form id='create' onSubmit={onSubmit}>
                       <div className="form-outline mb-4">

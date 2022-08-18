@@ -93,12 +93,22 @@ export const Navbar = () => {
                 <li className="u-nav-item">
                   <Link
                     className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                    to="/collection"
+                    style={{ padding: "10px 20px" }}
+                  >
+                    My collection
+                  </Link>
+                </li>
+                <li className="u-nav-item">
+                  <Link
+                    className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                     to="/profile"
                     style={{ padding: "10px 20px" }}
                   >
                     Profile
                   </Link>
                 </li>
+                
               </ul>
 
               : <ul className="u-nav u-unstyled u-nav-1">

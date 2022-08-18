@@ -19,6 +19,6 @@ export const login=(email,password)=>
    }
 };
 
- export const register = (email, password,name) =>
-    request.post(`${baseUrl}/register`, {email, password,name});
+ export const register = (email, password,name,imgUrl) =>
+    request.post(`${baseUrl}/register`, {email, password,name,imgUrl});
  

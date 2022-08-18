@@ -12,11 +12,12 @@ export const Register=()=>{
     const{
     name,
     email,
-    password
+    password,
+    imgUrl
     }=Object.fromEntries(new FormData(e.target))
 
     authServices
-    .register(email,password,name)
+    .register(email,password,name,imgUrl)
     .then(authData=>{
       userLogin(authData);
       navigate('/')
@@ -65,6 +66,17 @@ export const Register=()=>{
                   </div>
                   <div className="form-outline mb-4">
                     <input
+                      name="imgUrl"
+                      type="text"
+                      id="form3Example4cg"
+                      className="form-control form-control-lg"
+                    />
+                    <label className="form-label" htmlFor="form3Example4cg">
+                      Img url
+                    </label>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <input
                       name="password"
                       type="password"
                       id="form3Example4cg"
@@ -93,12 +105,7 @@ export const Register=()=>{
                       Register
                     </button>
                   </div>
-                  <p className="text-center text-muted mt-5 mb-0">
-                    Have already an account?{" "}
-                    <a href="#!" className="fw-bold text-body">
-                      <u>Login here</u>
-                    </a>
-                  </p>
+                 
                 </form>
               </div>
             </div>
