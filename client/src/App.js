@@ -23,13 +23,15 @@ import { NotFound } from './components/NotFound/NotFound';
 import { Profile } from './components/Profile/Profile';
 import { Collection } from './components/Collection/Collection';
 
+
 function App() {
   const [auth,setAuth]=useLocalStorage('auth',{});
   const [memes,setMemes]=useState([]);
+  const [beforeSearch,setBeforeSearch]=useState([]);
 
   const userLogin=(authData)=>{
     setAuth(authData);
-  }
+  };
 
   const userLogout = () => {
     setAuth({});
@@ -45,6 +47,22 @@ function App() {
     
    };
 
+   
+   const memeSearch=(search)=>{
+      
+      search=search.toLowerCase()
+      console.log(beforeSearch);
+      if(search!=='' && search.length>1){
+        setMemes(state=>state.filter(x=>
+          x.title.toLowerCase()
+          .startsWith(search)))
+      }else{
+
+        setMemes(beforeSearch);
+      }
+     
+   }
+
    const memeDelete = (memeId) => {
     setMemes(state => state.filter(x=>x._id!==memeId));
    };
@@ -55,30 +73,31 @@ function App() {
 
      const selectMeme = (memeId) => {
       return memes.find((x => x._id === memeId) || {});
-  };
-
+     };
+  useEffect(()=>{
+    memeServices
+  .getAll()
+  .then(result=>{
+    setMemes(result);
+    setBeforeSearch(result);
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+  },[])
   
  
      
 
-    useEffect(()=>{
-        memeServices
-      .getAll()
-      .then(result=>{
-        setMemes(result);
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
-    },[])
+   
 
   return (
     <AuthContext.Provider value={{user:auth,userLogin,userLogout,isAuthenticated}}>
     <div className="App">
-    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete,memeEdit,selectMeme,memes}}>
+    <MemeContext.Provider value={{setMemes,memeAdd,memeDelete,memeEdit,selectMeme,memes,memeSearch}}>
       <Navbar/>
+    
       <Routes>
-      <Route path="/" element={ <Home/>}/>
       <Route path="/cards/details/:cryptoId" element={ <CryptoDetails/>}/>
       <Route element={<IsLoggedIn/>}>
          <Route path="/login" element={ <Login/>}/>
@@ -87,7 +106,8 @@ function App() {
       <Route path="/profile" element={ <Profile/>}/>
       <Route path="/collection" element={ <Collection/>}/>
       <Route path="/logout" element={ <Logout/>}/>
-      <Route path="/memes" element={ <Memes memes={memes}/>}/>
+      <Route path="/" element={ <Home/>}/>
+      <Route path="/memes" element={ <Memes />}/>
       <Route path="/create" element={ <CreateMeme/>}/>
       <Route path="/memes/details/:memeId" element={ <MemeDetails/>}/>
       <Route element={<MemeOwner/>}>
