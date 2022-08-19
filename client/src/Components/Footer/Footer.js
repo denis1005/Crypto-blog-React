@@ -14,7 +14,7 @@ export const Footer=()=>{
             >
               <img
                 alt=''
-                src="images/default-logo.png"
+                src="images/default-logo.jpg"
                 className="u-logo-image u-logo-image-1"
               />
             </a>

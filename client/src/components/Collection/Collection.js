@@ -19,8 +19,18 @@ export const Collection=()=>{
                 {memes.length > 0
                   ? memes.map(x => <MemeCard key={x._id} data={x} />)
 
-                  : <div>
-                      <h2 >You don't have created memes</h2> 
+                  : <div
+                    style={{
+                      width:'1505px'
+                    }}
+                    >
+                      <p style={
+                        {
+                          textAlign: "center",
+                          fontSize: 'large',
+                          fontWeight: "bold"
+                        }
+                      }>You don't have memes in your collection</p> 
                    </div> 
                 }
                 
