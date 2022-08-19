@@ -19,7 +19,7 @@ export const CryptoCard=({data})=>{
          {data.description}
     </p>
     <Link to={`/cards/details/${data._id}`} className="u-btn u-button-style u-palette-3-base u-btn-2">
-      Details
+      Read More
     </Link>
   </div>
 </div>

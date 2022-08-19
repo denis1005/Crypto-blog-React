@@ -5,6 +5,7 @@ import { useContext } from 'react';
 export const Navbar = () => {
   const { user } = useContext(AuthContext);
   return (
+    
     <header className="u-clearfix u-header u-header" id="sec-fbf6">
       <div className="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" className="u-image u-logo u-image-1">

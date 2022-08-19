@@ -24,7 +24,7 @@ export const CryptoDetails= ()=>{
     <>
   <section className="u-clearfix u-section-2" id="sec-51c0">
     <div className="u-clearfix u-sheet u-sheet-1">
-      <h1 className="u-text u-text-default u-title u-text-1">Details</h1>
+      <h1 className="u-text u-text-default u-title u-text-1">Facts</h1>
       <div className="u-list u-list-1">
         <div className="u-repeater u-repeater-1">
           <div className="u-container-style u-list-item u-repeater-item">

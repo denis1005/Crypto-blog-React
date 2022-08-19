@@ -72,6 +72,7 @@ export const MemeDetails = () => {
 
   return (
     <section className="u-align-center u-clearfix u-section-1" id="sec-fff7">
+       <h1 className="text-center">{selected.title}</h1>
       <div className="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         {/*post_details*/}
         {/*post_details_options_json*/}
@@ -80,20 +81,11 @@ export const MemeDetails = () => {
         {/*blog_post*/}
         <div className="u-container-style u-expanded-width u-post-details u-post-details-1">
           <div className="u-container-layout u-container-layout-1">
-            {/*blog_post_image*/}
-            <img
-              alt=""
-              className="u-blog-control u-expanded-width u-hover-feature u-image u-image-default u-image-1"
-              src={selected.imgUrl}
-            />
-            {/*/blog_post_image*/}
-            {/*blog_post_header*/}
-            <h2 className="u-blog-control u-text u-text-1">
-              <a className="u-post-header-link" href="blog/post-5.html">
-                {/*blog_post_header_content*/}{selected.title}
-                {/*/blog_post_header_content*/}
-              </a>
-            </h2>
+          <img src={selected.imgUrl} class="rounded mx-auto d-block" alt="..."/>
+          
+            
+          
+           
             {/*/blog_post_header*/}
             <h3
               className="u-text u-text-2"
@@ -104,7 +96,9 @@ export const MemeDetails = () => {
               <Likes likes={allLike}></Likes>
             </h3>
             {user.email
-              ? <div className="btn-group">
+                
+                ? <div class="text-center">
+                    <div className="btn-group">
                 {user._id == selected._ownerId
                   ? <>
                     <Link
@@ -134,7 +128,8 @@ export const MemeDetails = () => {
                 }
 
 
-              </div>
+                    </div>
+                </div>
 
               : <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <h1>You need to be log in to like the meme</h1>

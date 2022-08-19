@@ -1,5 +1,6 @@
 import * as authServices from '../../Service/authService'
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext';
 import { useContext } from 'react';
 
@@ -74,9 +75,9 @@ export const Login=()=>{
                 <div>
                   <p className="mb-0">
                     Don't have an account?{" "}
-                    <a href="#!" className="text-white-50 fw-bold">
+                    <Link to="/register" className="text-white-50 fw-bold">
                       Sign Up
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
