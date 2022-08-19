@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import * as cryptoServices from "../../Service/cryptoServices"
 import { useNavigate } from 'react-router';
 
+
 export const CryptoDetails= ()=>{
   const { cryptoId } = useParams();
   const [selected, setSelected] = useState({});
