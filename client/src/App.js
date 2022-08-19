@@ -17,7 +17,6 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import { EditMeme } from './components/Edit/Edit';
 import * as memeServices from "./Service/memeServices"
 import { useState, useEffect } from 'react'
-import { MemeOwner } from './components/common/MemeOwner'
 import { IsLoggedIn } from './components/common/IslogedIn'
 import { IsGuest } from './components/common/IsGuest' 
 import { NotFound } from './components/NotFound/NotFound';
@@ -109,9 +108,7 @@ function App() {
             <Route path="/memes" element={<Memes />} />
             <Route path="/create" element={<CreateMeme />} />
             <Route path="/memes/details/:memeId" element={<MemeDetails />} />
-            <Route element={<MemeOwner />}>
-              <Route path="/memes/edit/:memeId" element={<EditMeme />} />
-            </Route>
+            <Route path="/memes/edit/:memeId" element={<EditMeme />} />
             <Route path="*" element={<NotFound />} />
 
           </Routes>
