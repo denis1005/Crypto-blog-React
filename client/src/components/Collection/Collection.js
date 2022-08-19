@@ -8,7 +8,6 @@ export const Collection=()=>{
     const{user}=useContext(AuthContext)
     let {memes}=useContext(MemeContext)
     memes=memes.filter(x=>x._ownerId===user._id)
-    console.log(memes)
 
     return(
         <>

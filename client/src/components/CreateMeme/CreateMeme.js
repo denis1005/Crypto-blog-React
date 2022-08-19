@@ -1,36 +1,92 @@
 import * as memeServices from "../../Service/memeServices"
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { MemeContext } from '../../context/Memecontext';
 import { useNavigate } from 'react-router';
 
-export const  CreateMeme=()=>{
- 
+export const CreateMeme = () => {
+
+  const [imgUrl, setImgUrl] = useState('');
+  const [title, setTitle] = useState('');
+  const [error, setError] = useState({
+    imgUrl: '',
+    title: '',
+  });
+
+  const onChangeImgUrl = (e) => {
+    setImgUrl(e.target.value);
+  }
+
+  const onChangeTitle = (e) => {
+    setTitle(e.target.value)
+  }
+
+  const validateImgUrl = (e) => {
+    let errorMessage = ''
+    const imgUrl = e.target.value;
+    if (!imgUrl.startsWith('http')) {
+      errorMessage = "The imgUr should start with http";
+      setImgUrl("");
+    }
+    if (imgUrl === '') {
+      errorMessage = "The imgUr can't be empty string";
+      setImgUrl("");
+    }
+
+    setError(state => ({
+      ...state,
+      imgUrl: errorMessage,
+    }));
+
+  }
+
+  const validateTitle = (e) => {
+    let errorMessage = ''
+    if (title.length <= 3) {
+      errorMessage = "The title should have at least 4 symbols";
+      setTitle("");
+    }
+    if (title.length >= 7) {
+      errorMessage = "The title should not have more then 7 symbols";
+      setTitle("");
+    }
+   
+
+    setError(state => ({
+      ...state,
+      title: errorMessage,
+    }))
+   }
+
 
   const { memeAdd } = useContext(MemeContext);
 
-  const navigate=useNavigate()
-  const onSubmit=(e)=>{
-   e.preventDefault();
-    const{
-    title,
-    imgUrl,
-    
-    }=Object.fromEntries(new FormData(e.target))
+  const navigate = useNavigate()
 
-    memeServices
-    .createOne(title,imgUrl)
-    .then(res=>{
-      memeAdd(res)
-      navigate('/memes')
-    })
-    .catch((err)=>{
-        navigate('/404')
-    })
-    
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const {
+      title,
+      imgUrl,
+
+    } = Object.fromEntries(new FormData(e.target))
+    if (title && imgUrl) {
+      memeServices
+        .createOne(title, imgUrl)
+        .then(res => {
+          memeAdd(res)
+          navigate('/memes')
+        })
+        .catch((err) => {
+          navigate('/404')
+        })
+    }
+
+
   }
-    return(
-        <>
-        <section>
+
+  return (
+    <>
+      <section>
         <div className="card-body p-5 text-center">
           <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
@@ -47,23 +103,38 @@ export const  CreateMeme=()=>{
                           type="text"
                           id="form3Example1cg"
                           className="form-control form-control-lg"
+                          onChange={onChangeTitle}
+                          onBlur={validateTitle}
+                          value={title}
                         />
+                         {error.title &&
+                          <div style={{ color: 'red' }}>{error.title}</div>
+                        }
                         <label className="form-label" htmlFor="form3Example1cg">
                           Your Meme Title
                         </label>
                       </div>
+
                       <div className="form-outline mb-4">
                         <input
                           name="imgUrl"
                           type="text"
                           id="form3Example1cg"
                           className="form-control form-control-lg"
+                          value={imgUrl}
+                          onBlur={validateImgUrl}
+                          onChange={onChangeImgUrl}
                         />
+                        {error.imgUrl &&
+                          <div style={{ color: 'red' }}>{error.imgUrl}</div>
+                        }
                         <label className="form-label" htmlFor="form3Example1cg">
                           Your Meme Image URL
                         </label>
+
+
                       </div>
-                  
+
                       <div className="d-flex justify-content-center">
                         <button
                           type="submit"
@@ -72,7 +143,7 @@ export const  CreateMeme=()=>{
                           Create
                         </button>
                       </div>
-                     
+
                     </form>
                   </div>
                 </div>
@@ -82,5 +153,5 @@ export const  CreateMeme=()=>{
         </div>
       </section>
     </>
-    );
+  );
 }
