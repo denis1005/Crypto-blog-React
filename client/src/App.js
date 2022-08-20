@@ -1,27 +1,27 @@
 /* eslint-disable eqeqeq */
-import { Home } from './components/Home/Home';
-import { Navbar } from './components/Navbar/Navbar';
-import { Footer } from './components/Footer/Footer';
-import { CryptoDetails } from './components/CryptoDetails/CryptoDetails';
-import { Login } from './components/Login/Login';
+import { Home } from './Components/Home/Home';
+import { Navbar } from './Components/Navbar/Navbar';
+import { Footer } from './Components/Footer/Footer';
+import { CryptoDetails } from './Components/CryptoDetails/CryptoDetails';
+import { Login } from './Components/Login/Login';
 import { Route, Routes } from 'react-router-dom'
 import { AuthContext } from './context/AuthContext';
 import { MemeContext } from './context/Memecontext';
-import { Register } from './components/Register/Register';
-import { Logout } from './components/Logout/Logout';
-import { Memes } from './components/Memes/Memes';
-import { MemeDetails } from './components/Meme details/MemeDetails';
-import { CreateMeme } from './components/CreateMeme/CreateMeme';
+import { Register } from './Components/Register/Register';
+import { Logout } from './Components/Logout/Logout';
+import { Memes } from './Components/Memes/Memes';
+import { MemeDetails } from './Components/Meme details/MemeDetails';
+import { CreateMeme } from './Components/CreateMeme/CreateMeme';
 import './App.css';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { EditMeme } from './components/Edit/Edit';
+import { EditMeme } from './Components/Edit/Edit';
 import * as memeServices from "./Service/memeServices"
 import { useState, useEffect } from 'react'
-import { IsLoggedIn } from './components/common/IslogedIn'
-import { IsGuest } from './components/common/IsGuest' 
-import { NotFound } from './components/NotFound/NotFound';
-import { Profile } from './components/Profile/Profile';
-import { Collection } from './components/Collection/Collection';
+import { IsLoggedIn } from './Components/common/IslogedIn'
+import { IsGuest } from './Components/common/IsGuest' 
+import { NotFound } from './Components/NotFound/NotFound';
+import { Profile } from './Components/Profile/Profile';
+import { Collection } from './Components/Collection/Collection';
 
 
 
