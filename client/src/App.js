@@ -45,6 +45,10 @@ function App() {
       ...state,
       memeData,
     ]);
+    beforeSearch(state => [
+      ...state,
+      memeData,
+    ]);
 
   };
 
@@ -69,6 +73,8 @@ function App() {
 
   const memeEdit = (memeId, memeData) => {
     setMemes(state => state.map(x => x._id === memeId ? memeData : x));
+    beforeSearch(state => state.map(x => x._id === memeId ? memeData : x));
+
   }
 
   const selectMeme = (memeId) => {
