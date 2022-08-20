@@ -59,6 +59,11 @@ Register Page:
 
 After a successful register, it will redirect to the home page and save the user information in localStorage.
 
+In case of invalid input:
+
+![invalid input](https://user-images.githubusercontent.com/19151979/185765558-38bc2fd0-c3f3-418d-b2f8-e8116829c57c.PNG)
+
+
 
 ## Loged in user
 
