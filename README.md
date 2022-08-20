@@ -32,7 +32,7 @@ The home page is available to users and guests.It also displays a collection of 
 
 Details page:
 
-The Details page is available to users and guests.
+The Details page is available to users and guests. It will display 3 facts about the coin and at the end working lightning network address.
 
 
 ![datails3](https://user-images.githubusercontent.com/19151979/185437086-145b6ff7-0d1d-402f-be8c-2831c3a03bb2.PNG)
