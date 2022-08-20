@@ -48,6 +48,7 @@ Login Page:
 After a successful login, it will redirect to the home page and save the user information in localStorage.
 
 In case of wrong  username or passowrd it will display:
+
 ![Error loginpage](https://user-images.githubusercontent.com/19151979/185765437-904077ee-9460-491e-b5df-1e73b474e04c.PNG)
 
 
