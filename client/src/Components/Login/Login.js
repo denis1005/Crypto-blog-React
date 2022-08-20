@@ -2,11 +2,14 @@ import * as authServices from '../../Service/authService'
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext';
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 
 export const Login=()=>{
   const{userLogin}=useContext(AuthContext)
-
+  const [error, setError] = useState({
+    ErrorMessage: '',
+    
+  });
 
   
   const navigate=useNavigate()
@@ -20,12 +23,21 @@ export const Login=()=>{
       authServices
       .login(email,password)
       .then(authData=>{
-        userLogin(authData);
-        navigate('/')
-  
+        
+        if(authData.code){
+          setError(state => ({
+            ...state,
+            ErrorMessage: authData.message,
+          }));
+          navigate('/login')
+        }else{
+          userLogin(authData);
+         navigate('/')
+        }
+      
       })
       .catch((err)=>{
-        navigate('/404')
+        navigate('404')
       })
       
     }
@@ -47,6 +59,9 @@ export const Login=()=>{
                   <p className="text-white-50 mb-5">
                     Please enter your login and password!
                   </p>
+                  {error.ErrorMessage &&
+                          <div style={{ color: 'red' }}>{error.ErrorMessage}</div>
+                          }
                   <div className="form-outline form-white mb-4">
                     <input
                       name="email"

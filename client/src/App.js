@@ -24,13 +24,14 @@ import { Profile } from './components/Profile/Profile';
 import { Collection } from './components/Collection/Collection';
 
 
+
 function App() {
   const [auth, setAuth] = useLocalStorage('auth', {});
   const [memes, setMemes] = useState([]);
   const [beforeSearch, setBeforeSearch] = useState([]);
 
   const userLogin = (authData) => {
-    setAuth(authData);
+      setAuth(authData);
   };
 
   const userLogout = () => {
@@ -87,11 +88,11 @@ function App() {
   }, [])
 
   return (
+   
     <AuthContext.Provider value={{ user: auth, userLogin, userLogout, isAuthenticated }}>
       <div className="App">
         <MemeContext.Provider value={{ setMemes, memeAdd, memeDelete, memeEdit, selectMeme, memes, memeSearch }}>
           <Navbar />
-
           <Routes>
             <Route path="/cards/details/:cryptoId" element={<CryptoDetails />} />
             <Route element={<IsLoggedIn />}>
@@ -112,6 +113,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
 
           </Routes>
+
           <Footer />
         </MemeContext.Provider>
       </div>

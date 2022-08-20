@@ -15,7 +15,8 @@ export const Register = () => {
     name: '',
     email: '',
     password: '',
-    RepeatPassword: ''
+    RepeatPassword: '',
+    ServerErrorMessage:''
   });
   const { userLogin } = useContext(AuthContext)
   const navigate = useNavigate()
@@ -88,8 +89,17 @@ export const Register = () => {
       authServices
         .register(email, password, name, imgUrl)
         .then(authData => {
-          userLogin(authData);
-          navigate('/')
+          
+          if(authData.code){
+            setError(state => ({
+              ...state,
+              ServerErrorMessage: authData.message,
+            }));
+            navigate('/register')
+          }else{
+            userLogin(authData);
+           navigate('/')
+          }
 
         })
         .catch(() => {
@@ -111,6 +121,9 @@ export const Register = () => {
                     <h2 className="text-uppercase text-center mb-5">
                       Create an account
                     </h2>
+                    {error.ServerErrorMessage &&
+                          <div style={{ color: 'red' }}>{error.ServerErrorMessage}</div>
+                    }
                     <form id='register' onSubmit={onSubmit}>
                       <div className="form-outline mb-4">
                         <input

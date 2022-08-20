@@ -9,7 +9,6 @@ export const Memes = () => {
   const onSearchChange=(e)=>{
     setSearch(e.target.value)
     memeSearch(search)
-    console.log(search);
   }
 
   return (
