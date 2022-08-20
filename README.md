@@ -105,5 +105,8 @@ For guest it will display:
 ![guestMemeDetails](https://user-images.githubusercontent.com/19151979/185765957-4e3ef915-8d0e-42e6-8eea-734dd9283824.PNG)
 
 
+Profile page: It includes the user's name, profile picture and email.
+
+![Profile](https://user-images.githubusercontent.com/19151979/185766029-a34ef9b4-db18-4985-944b-3da83aeb9a26.PNG)
 
 
