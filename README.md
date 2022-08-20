@@ -85,10 +85,24 @@ In case of invalid input it will display:
 ![invalidCreate input](https://user-images.githubusercontent.com/19151979/185765625-e7afff0a-b823-4330-83f5-29c3ebbb797d.PNG)
 
 
-Edit Page:
+Edit Page: It will generate in the fields the current information for the meme that you want to edit.
 
 ![Edit](https://user-images.githubusercontent.com/19151979/185439989-9196ee52-9cfe-45a6-ad6d-f5abb5cc4bc0.PNG)
 
+Meme Details Page:
+
+For logged in user which is the creator it will display:
+
+
+![LogedinMemeDetailsCreator](https://user-images.githubusercontent.com/19151979/185765894-a3373c97-36d7-4528-9d8e-0373e020cadd.PNG)
+
+For logged in user which is not the creator it will display:
+
+![MemeDetailsLogedinNote creator](https://user-images.githubusercontent.com/19151979/185765933-39183791-0cd3-4379-acd4-c9a209cc9c8e.PNG)
+
+For guest it will display:
+
+![guestMemeDetails](https://user-images.githubusercontent.com/19151979/185765957-4e3ef915-8d0e-42e6-8eea-734dd9283824.PNG)
 
 
 
