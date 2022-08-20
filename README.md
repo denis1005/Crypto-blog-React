@@ -37,6 +37,11 @@ The Details page is available to users and guests. It will display 3 facts about
 
 ![datails3](https://user-images.githubusercontent.com/19151979/185437086-145b6ff7-0d1d-402f-be8c-2831c3a03bb2.PNG)
 
+Meme page:
+
+The page is available to users and guests. It also displays a collection of several memes.
+
+![memePage](https://user-images.githubusercontent.com/19151979/185765756-e195b12f-ea6a-4b79-b4bd-ce399754cc5b.PNG)
 
 
 
@@ -45,7 +50,8 @@ Login Page:
 
 ![Login](https://user-images.githubusercontent.com/19151979/185437912-8f11475a-f4ed-49da-9a20-ac0baa645e84.PNG)
 
-After a successful login, it will redirect to the home page and save the user information in localStorage.
+After a successful login, it will redirect to the home page and save the user information in localStorage. If you try again to acces the route '/login'
+it will redirect you to 404 page.
 
 In case of wrong  username or passowrd it will display:
 
@@ -57,7 +63,8 @@ Register Page:
 
 ![Register](https://user-images.githubusercontent.com/19151979/185438433-3303bfeb-5623-45b4-aaaa-feda4afe7d66.PNG)
 
-After a successful register, it will redirect to the home page and save the user information in localStorage.
+After a successful register, it will redirect to the home page and save the user information in localStorage. If you try again to acces the route '/registe'
+it will redirect you to 404 page.
 
 In case of invalid input:
 
@@ -72,6 +79,11 @@ A logged in user can create memes, edit and delete the ones they have created. O
 Create Page:
 
 ![create](https://user-images.githubusercontent.com/19151979/185439925-ec799c0c-c215-44ca-916a-5b79066465e3.PNG)
+
+In case of invalid input it will display:
+
+![invalidCreate input](https://user-images.githubusercontent.com/19151979/185765625-e7afff0a-b823-4330-83f5-29c3ebbb797d.PNG)
+
 
 Edit Page:
 
