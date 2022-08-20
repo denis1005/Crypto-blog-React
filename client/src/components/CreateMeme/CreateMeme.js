@@ -46,10 +46,7 @@ export const CreateMeme = () => {
       errorMessage = "The title should have at least 4 symbols";
       setTitle("");
     }
-    if (title.length >= 7) {
-      errorMessage = "The title should not have more then 7 symbols";
-      setTitle("");
-    }
+   
    
 
     setError(state => ({
