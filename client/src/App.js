@@ -59,7 +59,7 @@ function App() {
     if (search !== '' && search.length > 1) {
       setMemes(state => state.filter(x =>
         x.title.toLowerCase()
-          .startsWith(search)))
+          .includes(search)))
     } else {
 
       setMemes(beforeSearch);

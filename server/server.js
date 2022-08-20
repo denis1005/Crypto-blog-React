@@ -1687,6 +1687,47 @@
                 "description":"XRP, itself, is used to source liquidity on-demand and reduce the amount in nostro accounts required to make global payments. Ripple also funds the Interledger Protocol, a software platform that aims to facilitate transactions between cryptocurrencies and bank ledgers.",
                 "_id": "54e6d099-6e00-4613-97b7-bc2b6bdc1db12"
             },
+            "54e6d099-6e00-4613-97b7-bc2b6bdc1db13": {
+                "name": "Shiba Inu",
+                "symbol": "SHIB",
+                "imgUrl": "https://thumbs.dreamstime.com/b/shiba-inu-shib-cryptocurrency-token-coin-235807966.jpg",
+                "founder":"The largest holder of Shiba Inu is a dead wallet containing the contents of Ethereum co-founder Vitalik Buterin's Shiba Inu burn. ",
+                "useCases":"How Shiba Inu coin works? Since ShibaSwap is built on the Ethereum blockchain, it offers trading between ERC-20 tokens, meaning tokens built on that specific blockchain. Users can also stake (deposit) their crypto to the exchange's liquidity pools so the exchange can use it. In return, users receive crypto rewards on their staked tokens",
+                "description":"Shiba Inu Coin is a decentralized, community-building cryptocurrency that is “an experiment” developed within the Shiba Inu Ecosystem. They built it on top of the Ethereum Blockchain Network, like many other coins. It is a meme coin launched as a rival of Dogecoin or “Doge-Killer”",
+                "_id": "54e6d099-6e00-4613-97b7-bc2b6bdc1db13"
+            },
+            "54e6d099-6e00-4613-97b7-bc2b6bdc1db14": {
+                "name": "Polygon",
+                "imgUrl": "https://thumbs.dreamstime.com/b/polygon-matic-coin-cryptocurrency-concept-banner-background-248569159.jpg",
+                "founder":"Sandeep Nailwal, who co-founded Polygon in 2017 and relocated to Dubai two years ago, said India was witnessing crypto brain drain because there was still no clarity in its policies, according to a Bloomberg report ",
+                "useCases":"What is the use of Polygon coin? Polygon is a “layer two” or “sidechain” scaling solution that runs alongside the Ethereum blockchain — allowing for speedy transactions and low fees. MATIC is the network's native cryptocurrency, which is used for fees, staking, and more. You can buy or sell MATIC via exchanges like Coinbase.",
+                "description":"What does Polygon coin do? MATIC is the native cryptocurrency of the Polygon network and is used to help drive development across the network and can be used for staking and paying for transaction fees. Users can earn MATIC tokens by providing computational resources and services to the Polygon network.",
+                "_id": "54e6d099-6e00-4613-97b7-bc2b6bdc1db14"
+            },
+            "54e6d099-6e00-4613-97b7-bc2b6bdc1db15": {
+                "name": "Uniswap",
+                "imgUrl": "https://1inch.io/img/liquiditySources/uniswap/about_1.png",
+                "founder":"Hayden Adams is founder of Uniswap, one of the most widely used decentralized applications built on Ethereum. Prior to Uniswap, Hayden was an engineer at Siemens. ",
+                "useCases":" Uniswap is a program on the Ethereum blockchain for trading ERC20 tokens. In contrast to most exchanges, which are intended to take trading charges, Uniswap works for public welfare. It is a tool for members to exchange tokens easily without paying any platform charges or dealing with negotiators.",
+                "description":"Uniswap has risen in popularity as it does not charge fees to list tokens. This allows several Ethereum-based tokens such as Shiba Inu (SHIB), Decentraland (MANA), Enjin (ENJ), etc to be easily accessible for traders. It does not support non-ERC-20 tokens such as Bitcoin (BTC), Dogecoin (DOGE), Cardano (ADA), etc",
+                "_id": "54e6d099-6e00-4613-97b7-bc2b6bdc1db15"
+            },
+            "54e6d099-6e00-4613-97b7-bc2b6bdc1db16": {
+                "name": "Chainlink",
+                "imgUrl": "https://beincrypto.com/wp-content/uploads/2022/01/chainlink-2.jpg",
+                "founder":"Chainlink was created in 2017 by Sergey Nazarov and Steve Ellis, who co-authored a white paper introducing the Chainlink protocol and network with Cornell University professor Ari Juels the same year.",
+                "useCases":" It uses an off-chain and on-chain infrastructure to facilitate the information flow on and off the blockchain. Chainlink can be used in various industries such as insurance, securities, supply chain, payments and others, wherever the proof of events and data stamps are required.",
+                "description":"What is Chainlink trying to solve? Chainlink has solved the oracle problem of smart contracts by creating a distributed pool of oracles, in each of which the oracles all strive to produce high-quality information. Smart contracts that take advantage of a decentralized pool of oracles improve their reliability",
+                "_id": "54e6d099-6e00-4613-97b7-bc2b6bdc1db16"
+            },
+            "54e6d099-6e00-4613-97b7-bc2b6bdc1db17": {
+                "name": "Algorand",
+                "imgUrl": "https://dlt4all.eu/wp-content/uploads/2020/03/Algorand-CEO-Defends-Valuation-And-Claims-Blockchain-Will-Benefit-From-Algo-Sale-930x620.jpg",
+                "founder":"Silvio Micali In 2017, Silvio founded Algorand, a fully decentralized, secure, and scalable blockchain which provides a common platform for building products and services for a borderless economy. At Algorand, Silvio oversees all research, including theory, security and crypto finance.",
+                "useCases":" Algorand (ALGO) is a blockchain platform and cryptocurrency designed to function like a major payments processor. ALGO, the native coin of the Algorand platform, is used to secure the platform and reward the platform's operators.",
+                "description":"Algorand has a unique two-tiered blockchain structure. The base layer supports smart contracts, asset creation, and atomic swaps between assets. All of these processes take place on Layer 1 of the Algorand blockchain, which helps ensure security and compatibility.",
+                "_id": "54e6d099-6e00-4613-97b7-bc2b6bdc1db17"
+            },
          
         },
         memes:{
