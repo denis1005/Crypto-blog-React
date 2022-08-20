@@ -8,44 +8,49 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 
-export const EditMeme =()=>{
-    const { memeId } = useParams();
-    const { memeEdit } = useContext(MemeContext);
-    const navigate = useNavigate();
-    const [selected,setSelected]= useState({})
+export const EditMeme = () => {
+  const { memeId } = useParams();
+  const { memeEdit } = useContext(MemeContext);
+  const navigate = useNavigate();
+  const [selected, setSelected] = useState({})
+  
+  useEffect(() => {
+    memeServices.getOne(memeId)
+      .then(res => {
+        setSelected(res);
+      })
+      .catch((err) => {
+        navigate('404')
+      })
+  }, [])
 
-    useEffect(()=>{
-        memeServices.getOne(memeId)
-        .then(res=>{
-            setSelected(res);
-        })
-        .catch((err)=>{
-           console.log(err)
-        })
-    },[])
-    
 
-    const onSubmit=(e)=>{
-        e.preventDefault();
-         const{
-         title,
-         imgUrl,
-         
-         }=Object.fromEntries(new FormData(e.target))
-     
-         memeServices
-         .updateOne(memeId,{title,imgUrl})
-         .then(res=>{
-            memeEdit(memeId,{title,imgUrl})
-            navigate(`/memes/details/${memeId}`)
-         })
-         .catch((err)=>{
-             navigate('/404')
-         })
-     }
-    return(
-        <>
-        <section>
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const {
+      title,
+      imgUrl,
+
+    } = Object.fromEntries(new FormData(e.target))
+    if(title && imgUrl)
+    {
+      memeServices
+      .updateOne(memeId, { title, imgUrl })
+      .then(res => {
+        memeEdit(memeId, { title, imgUrl })
+        navigate(`/memes/details/${memeId}`)
+      })
+      .catch((err) => {
+        navigate('/404')
+      })
+    }
+  
+  }
+
+
+  return (
+    <>
+      <section>
         <div className="card-body p-5 text-center">
           <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
@@ -53,7 +58,7 @@ export const EditMeme =()=>{
                 <div className="card bg-dark text-white" style={{ borderRadius: 15 }}>
                   <div className="card-body p-5">
                     <h2 className="text-uppercase text-center mb-5">
-                    Edit Meme
+                      Edit Meme
                     </h2>
                     <form id='create' onSubmit={onSubmit}>
                       <div className="form-outline mb-4">
@@ -63,7 +68,9 @@ export const EditMeme =()=>{
                           id="form3Example1cg"
                           className="form-control form-control-lg"
                           defaultValue={selected.title}
+                         
                         />
+                        
                         <label className="form-label" htmlFor="form3Example1cg">
                           Your Meme Title
                         </label>
@@ -80,7 +87,7 @@ export const EditMeme =()=>{
                           Your Meme Image URL
                         </label>
                       </div>
-                  
+
                       <div className="d-flex justify-content-center">
                         <button
                           type="submit"
@@ -89,7 +96,7 @@ export const EditMeme =()=>{
                           Edit
                         </button>
                       </div>
-                     
+
                     </form>
                   </div>
                 </div>
@@ -99,7 +106,6 @@ export const EditMeme =()=>{
         </div>
       </section>
     </>
-    );
-    
+  );
+
 }
-    

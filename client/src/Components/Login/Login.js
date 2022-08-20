@@ -6,6 +6,8 @@ import { useContext } from 'react';
 
 export const Login=()=>{
   const{userLogin}=useContext(AuthContext)
+
+
   
   const navigate=useNavigate()
   const onSubmit=(e)=>{
@@ -14,17 +16,19 @@ export const Login=()=>{
     email,
     password
     }=Object.fromEntries(new FormData(e.target))
-
-    authServices
-    .login(email,password)
-    .then(authData=>{
-      userLogin(authData);
-      navigate('/')
-
-    })
-    .catch(()=>{
-      navigate('/404')
-    })
+    if(email && password){
+      authServices
+      .login(email,password)
+      .then(authData=>{
+        userLogin(authData);
+        navigate('/')
+  
+      })
+      .catch((err)=>{
+        navigate('/404')
+      })
+      
+    }
     
   }
    return(
@@ -60,7 +64,9 @@ export const Login=()=>{
                       id="typePasswordX"
                       className="form-control form-control-lg"
                       name="password"
+                     
                     />
+                   
                     <label className="form-label" htmlFor="typePasswordX">
                       Password
                     </label>

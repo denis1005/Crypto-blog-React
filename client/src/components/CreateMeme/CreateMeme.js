@@ -4,13 +4,14 @@ import { MemeContext } from '../../context/Memecontext';
 import { useNavigate } from 'react-router';
 
 export const CreateMeme = () => {
-
+  const navigate = useNavigate()
   const [imgUrl, setImgUrl] = useState('');
   const [title, setTitle] = useState('');
   const [error, setError] = useState({
     imgUrl: '',
     title: '',
   });
+  const { memeAdd } = useContext(MemeContext);
 
   const onChangeImgUrl = (e) => {
     setImgUrl(e.target.value);
@@ -57,18 +58,8 @@ export const CreateMeme = () => {
     }))
    }
 
-
-  const { memeAdd } = useContext(MemeContext);
-
-  const navigate = useNavigate()
-
   const onSubmit = (e) => {
     e.preventDefault();
-    const {
-      title,
-      imgUrl,
-
-    } = Object.fromEntries(new FormData(e.target))
     if (title && imgUrl) {
       memeServices
         .createOne(title, imgUrl)
@@ -80,8 +71,6 @@ export const CreateMeme = () => {
           navigate('/404')
         })
     }
-
-
   }
 
   return (
@@ -109,7 +98,7 @@ export const CreateMeme = () => {
                         />
                          {error.title &&
                           <div style={{ color: 'red' }}>{error.title}</div>
-                        }
+                          }
                         <label className="form-label" htmlFor="form3Example1cg">
                           Your Meme Title
                         </label>
