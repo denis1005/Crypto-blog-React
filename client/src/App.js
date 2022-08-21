@@ -109,9 +109,10 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/collection" element={<Collection />} />
               <Route path="/logout" element={<Logout />} />
+              <Route path="/memes/edit/:memeId" element={<EditMeme />} />
+             <Route path="/create" element={<CreateMeme />} />
             </Route>
-            <Route path="/memes/edit/:memeId" element={<EditMeme />} />
-            <Route path="/create" element={<CreateMeme />} />
+
             <Route path="/memes/details/:memeId" element={<MemeDetails />} />
             <Route path="/" element={<Home />} />
             <Route path="/memes" element={<Memes />} />
