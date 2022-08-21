@@ -65,7 +65,7 @@ export const CreateMeme = () => {
           navigate('/memes')
         })
         .catch((err) => {
-          navigate('/404')
+         
         })
     }
   }

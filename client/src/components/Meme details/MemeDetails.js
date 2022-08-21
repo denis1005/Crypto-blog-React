@@ -65,7 +65,7 @@ export const MemeDetails = () => {
           setHasLiked(1);
         })
         .catch((err) => {
-          console.log(err)
+          navigate('404')
         })
     }
   }

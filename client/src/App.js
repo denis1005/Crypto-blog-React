@@ -45,7 +45,7 @@ function App() {
       ...state,
       memeData,
     ]);
-    beforeSearch(state => [
+    setBeforeSearch(state => [
       ...state,
       memeData,
     ]);
@@ -73,7 +73,7 @@ function App() {
 
   const memeEdit = (memeId, memeData) => {
     setMemes(state => state.map(x => x._id === memeId ? memeData : x));
-    beforeSearch(state => state.map(x => x._id === memeId ? memeData : x));
+    setBeforeSearch(state => state.map(x => x._id === memeId ? memeData : x));
 
   }
 
@@ -110,12 +110,11 @@ function App() {
               <Route path="/collection" element={<Collection />} />
               <Route path="/logout" element={<Logout />} />
             </Route>
-            
-            <Route path="/" element={<Home />} />
-            <Route path="/memes" element={<Memes />} />
+            <Route path="/memes/edit/:memeId" element={<EditMeme />} />
             <Route path="/create" element={<CreateMeme />} />
             <Route path="/memes/details/:memeId" element={<MemeDetails />} />
-            <Route path="/memes/edit/:memeId" element={<EditMeme />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/memes" element={<Memes />} />
             <Route path="*" element={<NotFound />} />
 
           </Routes>
