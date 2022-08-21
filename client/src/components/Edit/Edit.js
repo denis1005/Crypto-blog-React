@@ -37,7 +37,8 @@ export const EditMeme = () => {
       memeServices
       .updateOne(memeId, { title, imgUrl })
       .then(res => {
-        memeEdit(memeId, { title, imgUrl,_id:memeId })
+        console.log(res);
+        memeEdit(memeId, res)
         navigate(`/memes/details/${memeId}`)
       })
       .catch((err) => {
