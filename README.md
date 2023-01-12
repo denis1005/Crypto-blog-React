@@ -1,5 +1,5 @@
 
-# Crypto Dictionary 
+# Crypto Blog 
 
 This is my react project for softuni defense for the ReactJS course: 
 https://softuni.bg/trainings/3727/reactjs-june-2022
